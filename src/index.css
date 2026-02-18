@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Serif+JP:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+:root {
+  --bg: #0a0605;
+  --surface: #12080a;
+  --primary: #c41e3a;
+  --secondary: #d4a843;
+  --text: #f5f0eb;
+  --muted: #8b7355;
+  --border: rgba(196, 30, 58, 0.2);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.font-heading {
+  font-family: 'Noto Serif JP', serif;
+  letter-spacing: 0.03em;
+}
+
+.form-input {
+  width: 100%;
+  border-radius: 0.9rem;
+  border: 1px solid rgba(196, 30, 58, 0.3);
+  background: #0f0708;
+  color: #f5f0eb;
+  padding: 0.8rem 0.95rem;
+  font-size: 0.95rem;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.form-input::placeholder {
+  color: rgba(245, 240, 235, 0.45);
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: var(--secondary);
+  box-shadow: 0 0 0 3px rgba(212, 168, 67, 0.18);
+}
+
+#root {
+  min-height: 100vh;
+}

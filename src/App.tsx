@@ -123,18 +123,12 @@ const testimonials: Testimonial[] = [
 ]
 
 const galleryCards = [
-  { label: 'The Broth', gradient: 'from-[#2a0a0f] via-[#15080a] to-[#050303]' },
-  {
-    label: 'Hand-cut Noodles',
-    gradient: 'from-[#3a2412] via-[#1a0f08] to-[#0a0605]',
-  },
-  { label: 'The Bowl', gradient: 'from-[#4a1218] via-[#17090c] to-[#080404]' },
-  {
-    label: 'Late Night Fitzroy',
-    gradient: 'from-[#221012] via-[#0f0708] to-[#070505]',
-  },
-  { label: 'Karaage', gradient: 'from-[#463014] via-[#170f08] to-[#090605]' },
-  { label: 'Yuzu Bar', gradient: 'from-[#3a2a10] via-[#140d08] to-[#070605]' },
+  { label: 'The Broth', image: '/images/gallery-broth.jpg' },
+  { label: 'Hand-cut Noodles', image: '/images/gallery-noodles.jpg' },
+  { label: 'The Bowl', image: '/images/gallery-bowl.jpg' },
+  { label: 'Late Night Fitzroy', image: '/images/gallery-exterior.jpg' },
+  { label: 'Karaage', image: '/images/gallery-karaage.jpg' },
+  { label: 'Yuzu Bar', image: '/images/gallery-bar.jpg' },
 ]
 
 const sectionReveal = {
@@ -356,12 +350,18 @@ function App() {
             {galleryCards.map((card) => (
               <motion.article
                 key={card.label}
-                whileHover={{ y: -5 }}
-                className={`group relative h-56 overflow-hidden rounded-2xl border border-[rgba(196,30,58,0.2)] bg-gradient-to-br ${card.gradient} backdrop-blur-[1px]`}
+                whileHover={{ y: -5, scale: 1.02 }}
+                transition={{ duration: 0.3 }}
+                className="group relative h-56 overflow-hidden rounded-2xl border border-[rgba(196,30,58,0.2)]"
               >
-                <div className="absolute inset-0 bg-[linear-gradient(120deg,transparent_10%,rgba(255,255,255,0.12)_40%,transparent_70%)] -translate-x-full opacity-0 transition duration-700 group-hover:translate-x-full group-hover:opacity-100" />
+                <img
+                  src={card.image}
+                  alt={card.label}
+                  className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-                <p className="font-heading absolute bottom-4 left-4 text-2xl tracking-wide text-[#F5F0EB]">
+                <div className="absolute inset-0 bg-[rgba(196,30,58,0.15)] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+                <p className="font-heading absolute bottom-4 left-4 text-2xl tracking-wide text-[#F5F0EB] drop-shadow-lg">
                   {card.label}
                 </p>
               </motion.article>

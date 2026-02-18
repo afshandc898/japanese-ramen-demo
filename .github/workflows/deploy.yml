@@ -24,7 +24,6 @@ jobs:
       - name: Deploy to Cloudflare Pages
         uses: cloudflare/wrangler-action@v3
         with:
-          apiKey: ${{ secrets.CLOUDFLARE_API_KEY }}
-          email: ${{ secrets.CLOUDFLARE_EMAIL }}
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: be615fbeabe1ea1141cc03362a52f5ee
           command: pages deploy dist --project-name=japanese-ramen-demo --branch=main
